@@ -30,7 +30,6 @@ draw_plot <- function(DF, stationID) {
 
 draw_plot_animate <- function(DF, stationIds) {
   for (i in stationIds) {
-    #convert int to id
     draw_plot(DF, idFormat(i))
     Sys.sleep(2)
   }

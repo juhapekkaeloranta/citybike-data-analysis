@@ -1,25 +1,114 @@
 library(jsonlite)
 
-# Cleaned up static station information
-stationsJSON <- fromJSON("https://raw.githubusercontent.com/juhapekkamoilanen/citybike-data-analysis/master/stations.json")
-stations <- citybike$stationsJSON
-colnames(stations)
+# helpers
+intToStringWithZeros <- function(varInt, varLength) {
+  resultString <- as.character(varInt)
+  while(nchar(resultString) < varLength) {
+    resultString <- paste("0", resultString, sep="")
+  }
+  return(resultString)
+}
 
-stations
+idFormat <- function(intId) {
+  return(intToStringWithZeros(intId, 3))
+}
 
-# Sample of availability data from HSL
-sampleJSON <- fromJSON("http://dev.hsl.fi/tmp/citybikes/stations_20170623T085201Z")
-sample <- sampleJSON$result
+timeFormat <- function(intHH) {
+  return(intToStringWithZeros(intHH, 2))
+}
 
-# Interesting parameters: station name and available bikes
-id_and_name <- c(sample$name)
-avl <- c(sample$avl_bikes)
-availability_datetime_x_station <- t(avl)
+genTimeStringsFor24h <- function() {
+  times <- c()
+  for(h in 0:23) {
+    for(m in 0:59) {
+      times <- c(times, paste(timeFormat(h), timeFormat(m), sep = ""))
+    }
+  }
+  return(times)
+}
 
-rownames(availability_datetime_x_station) <- "2017-06-23 08:52:01"
-colnames(availability_datetime_x_station) <- t(id_and_name)
+getTimeStampsForDate <- function(varDateYYYYMMDD) {
+  
+  # set of timestamps - TODO: whole day in a loop
+  timesHHMM <- genTimeStringsFor24h()
+  
+  fullDateTimes <- sapply(timesHHMM, function(x) paste(varDateYYYYMMDD, "T", x, "01Z", sep = ""))
+  return(fullDateTimes)
+}
 
-# Show table
-availability_datetime_x_station
+getHumanReadableTimes <- function(setOfTimeStamps) {
+  # setOfTimeStamps format: c(YYYYMMDDTHHDDSSZ, ...)
+  # = rownames from bikeDF
+  hour <- substring(rownames(DF), 10, 11)
+  minute <- substring(rownames(DF), 12, 13)
+  return(paste(hour, ":", minute, sep=""))
+}
 
-# Note: all times in UTC
+#################################
+### GET CITYBIKEDATA FROM HSL ###
+#################################
+
+### defining functions ###
+
+getBasicStationInfo <- function() {
+  stationsJSON <- fromJSON("https://raw.githubusercontent.com/juhapekkamoilanen/citybike-data-analysis/master/stations.json")
+  return(stationsJSON$stations)
+}
+  
+initDataFrameForBikedata <- function(stationsBasicData) {
+  stationIDs <- stationsBasicData$stationId
+  emptyDF <- as.data.frame(matrix(ncol=NROW(stationIDs), nrow=0))
+  colnames(emptyDF) <- t(stationIDs)
+  return(emptyDF)
+}
+
+getObservationData <- function(datetime_string) {
+  # Note HSL times in UTC
+  return(
+    tryCatch({
+      url <- paste("http://dev.hsl.fi/tmp/citybikes/stations_", datetime_string, sep = "")
+      observation <- fromJSON(url)$result
+      print("Fetched!")
+      print(datetime_string)
+      return(observation)
+    }, error=function(e){
+      print("Error: cannot find:")
+      print(datetime_string)
+      return(NA)
+    })
+  )
+}
+
+getAndSaveObservationDataByDates <- function(df, datetime_strings) {
+  for (d in datetime_strings) {
+    indexOfNextRow <- nrow(df) + 1
+    observationData <- getObservationData(d)
+    if (!is.na(observationData)) {
+      df[indexOfNextRow, ] <- observationData$avl_bikes
+      rownames(df)[indexOfNextRow] <- d
+    }
+  }
+  return(df)
+}
+
+addTimeUnitColumns <- function(df) {
+  df$year <- sapply(rownames(df), function(x) as.numeric(substr(x, 1, 4)))
+  df$month <- sapply(rownames(df), function(x) as.numeric(substr(x, 5, 6)))
+  df$day <- sapply(rownames(df), function(x) as.numeric(substr(x, 7, 8)))
+  df$hour <- sapply(rownames(df), function(x) as.numeric(substr(x, 10, 11)))
+  df$minute <- sapply(rownames(df), function(x) as.numeric(substr(x, 12, 13)))
+  df$decMinute <- sapply(rownames(df), function(x) (as.numeric(substr(x, 12, 13)) %/% 10 + 1))
+  return(df)
+}
+
+### execution ###
+
+getWebData <- function(date) {
+  stationsInfo <- getBasicStationInfo()
+  bikeDF <- initDataFrameForBikedata(stationsInfo)
+  bikeDF <- getAndSaveObservationDataByDates(bikeDF, getTimeStampsForDate(date))
+  bikeDF <- addTimeUnitColumns(bikeDF)
+  return(bikeDF)
+}
+
+

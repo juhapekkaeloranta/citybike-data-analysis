@@ -13,6 +13,7 @@ Availability data from [http://dev.hsl.fi/tmp/citybikes/](http://dev.hsl.fi/tmp/
 
 ## Sample results
 
+### Uimastadion
 Bike availability at "Uimastadion" bike station on 25.06.2017. Observations:
 * People coming in for a morning swim around 8:00. And leaving around 10?
 * More people coming between 12-16 for the afternoon sun?
@@ -21,6 +22,33 @@ Bike availability at "Uimastadion" bike station on 25.06.2017. Observations:
 * Only two arrivals after 16! (Around 17:20 and 19:00)
 
 ![uimastation_26-06-17.png](https://github.com/juhapekkamoilanen/citybike-data-analysis/blob/master/uimastation_26-06-17.png)
+
+### Working / Residential
+
+Dirrent "station profiles" are noticeable:
+* Residential area
+* Workplace area
+
+**Example**
+
+Two stations 500m apart from each other:
+* Meilahden sairaala
+* Messeniuksen katu (in Taka-Töölö)
+
+![Messeniuksenkatu](https://github.com/juhapekkamoilanen/citybike-data-analysis/blob/master/messeniuksen_katu_27-06-17.png)
+
+![Meilahti](https://github.com/juhapekkamoilanen/citybike-data-analysis/blob/master/meilahden_sairaala_27-06-17.png)
+
+Notice the opposite availability / demand:
+* Meilahti fills up in the morning and empties around 15
+* Messeniuksenkatu empties in the morning and fills up again for the night
+
+**Legend**
+
+Line graphs uses aggregared data. Each datapoint is an aggregation for particular hour.
+- ![#64be1e](https://placehold.it/15/64be1e/000000?text=+) `#Max`
+- ![#0079c8](https://placehold.it/15/0079c8/000000?text=+) `Mean`
+- ![#dc0450](https://placehold.it/15/dc0450/000000?text=+) `Min`
 
 ## Instructions for running the r scripts
 

@@ -50,7 +50,7 @@
       "stationId":"007"
     },
     {
-      "name":"Vanha",
+      "name":"Vanha kirkkopuisto",
       "total_slots":16,
       "lat":"60.165311",
       "lon":" 24.939186",
@@ -127,7 +127,7 @@
       "stationId":"018"
     },
     {
-      "name":"Rautatientori",
+      "name":"Rautatientori / itä",
       "total_slots":20,
       "lat":"60.170760",
       "lon":"24.942522",
@@ -148,7 +148,7 @@
       "stationId":"021"
     },
     {
-      "name":"Rautatientori",
+      "name":"Rautatientori / länsi",
       "total_slots":16,
       "lat":"60.170600",
       "lon":"24.939671",
@@ -176,7 +176,7 @@
       "stationId":"025"
     },
     {
-      "name":"Kampin",
+      "name":"Kampin metroasema",
       "total_slots":28,
       "lat":"60.168644",
       "lon":"24.930435",
@@ -211,7 +211,7 @@
       "stationId":"030"
     },
     {
-      "name":"Marian",
+      "name":"Marian Sairaala",
       "total_slots":16,
       "lat":"60.168335",
       "lon":"24.922770",
@@ -267,7 +267,7 @@
       "stationId":"039"
     },
     {
-      "name":"Hakaniemen",
+      "name":"Hakaniemen metroasema",
       "total_slots":28,
       "lat":"60.178102",
       "lon":"24.952391",
@@ -295,14 +295,14 @@
       "stationId":"043"
     },
     {
-      "name":"Sörnäisten",
+      "name":"Sörnäisten metroasema",
       "total_slots":24,
       "lat":"60.187704",
       "lon":"24.960505",
       "stationId":"044"
     },
     {
-      "name":"Brahen",
+      "name":"Brahen kenttä",
       "total_slots":20,
       "lat":"60.186742",
       "lon":"24.950833",
@@ -379,7 +379,7 @@
       "stationId":"056"
     },
     {
-      "name":"Lauttasaaren",
+      "name":"Lauttasaaren ostoskeskus",
       "total_slots":26,
       "lat":"60.1603306",
       "lon":"24.8815441",
@@ -470,7 +470,7 @@
       "stationId":"071"
     },
     {
-      "name":"Eteläinen",
+      "name":"Eteläinen Hesperiankatu",
       "total_slots":18,
       "lat":"60.1756332",
       "lon":"24.9160216",
@@ -540,7 +540,7 @@
       "stationId":"082"
     },
     {
-      "name":"Meilahden",
+      "name":"Meilahden sairaala",
       "total_slots":20,
       "lat":"60.1902195",
       "lon":"24.9083351",
@@ -603,14 +603,14 @@
       "stationId":"093"
     },
     {
-      "name":"Laajalahden",
+      "name":"Laajalahden aukio",
       "total_slots":22,
       "lat":"60.1983016",
       "lon":"24.8759851",
       "stationId":"094"
     },
     {
-      "name":"Munkkiniemen",
+      "name":"Munkkiniemen aukio",
       "total_slots":24,
       "lat":"60.1967196",
       "lon":"24.8840917",
@@ -652,7 +652,7 @@
       "stationId":"100"
     },
     {
-      "name":"Munkkivuoren",
+      "name":"Munkkivuoren ostoskeskus",
       "total_slots":24,
       "lat":"60.2059946",
       "lon":"24.8798291",
@@ -757,7 +757,7 @@
       "stationId":"116"
     },
     {
-      "name":"Brahen",
+      "name":"Brahen puistikko",
       "total_slots":12,
       "lat":"60.1896706",
       "lon":"24.9481024",
@@ -806,7 +806,7 @@
       "stationId":"125"
     },
     {
-      "name":"Kalasataman",
+      "name":"Kalasataman metroasema",
       "total_slots":26,
       "lat":"60.188399",
       "lon":"24.975852",
@@ -876,7 +876,7 @@
       "stationId":"136"
     },
     {
-      "name":"Arabian",
+      "name":"Arabian kauppakeskus",
       "total_slots":12,
       "lat":"60.2027912",
       "lon":"24.9666128",
@@ -939,28 +939,28 @@
       "stationId":"146"
     },
     {
-      "name":"Käpylän",
+      "name":"Käpylän asema",
       "total_slots":22,
       "lat":"60.220227",
       "lon":" 24.948694",
       "stationId":"147"
     },
     {
-      "name":"Juhana",
+      "name":"Juhana Herttuan tie",
       "total_slots":22,
       "lat":"60.2184427",
       "lon":"24.9664619",
       "stationId":"148"
     },
     {
-      "name":"Toinen",
+      "name":"Toinen linja",
       "total_slots":22,
       "lat":"60.183164",
       "lon":"24.9441949",
       "stationId":"149"
     },
     {
-      "name":"Töölönlahden",
+      "name":"Töölönlahden puisto",
       "total_slots":32,
       "lat":"60.1766793",
       "lon":"24.9338701",

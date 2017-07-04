@@ -31,7 +31,7 @@ Dirrent "station profiles" are noticeable:
 
 **Example**
 
-Two stations 500m apart from each other:
+Two stations 500m apart from each other on 25.6.17:
 * Meilahden sairaala
 * Messeniuksen katu (in Taka-Töölö)
 
@@ -46,7 +46,7 @@ Notice the opposite availability / demand:
 **Legend**
 
 Line graphs uses aggregared data. Each datapoint is an aggregation for particular hour.
-- ![#64be1e](https://placehold.it/15/64be1e/000000?text=+) `#Max`
+- ![#64be1e](https://placehold.it/15/64be1e/000000?text=+) `Max`
 - ![#0079c8](https://placehold.it/15/0079c8/000000?text=+) `Mean`
 - ![#dc0450](https://placehold.it/15/dc0450/000000?text=+) `Min`
 

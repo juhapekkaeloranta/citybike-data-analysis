@@ -45,7 +45,7 @@ Notice the opposite availability / demand:
 
 **Legend**
 
-Line graphs uses aggregared data. Each datapoint is an aggregation for particular hour.
+Line graphs uses aggregared data. Each datapoint is an aggregation for particular hour on that day.
 - ![#64be1e](https://placehold.it/15/64be1e/000000?text=+) `Max`
 - ![#0079c8](https://placehold.it/15/0079c8/000000?text=+) `Mean`
 - ![#dc0450](https://placehold.it/15/dc0450/000000?text=+) `Min`
